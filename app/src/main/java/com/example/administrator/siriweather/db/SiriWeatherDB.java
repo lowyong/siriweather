@@ -34,7 +34,7 @@ public class SiriWeatherDB {
     }
 
     //获取SiriWeather的实例
-    public synchronized static SiriWeatherDB (Context context){
+    public synchronized static SiriWeatherDB getInstance(Context context){
         if (siriWeatherDB == null){
             siriWeatherDB = new SiriWeatherDB(context);
         }
@@ -54,7 +54,7 @@ public class SiriWeatherDB {
     //从数据库读取全国所有的省份信息
     public List<Province> loadProvinces(){
         List<Province> list = new ArrayList<Province>();
-        Cursor cursor =db.query("Procince",null,null,null,null,null,null);
+        Cursor cursor =db.query("Province",null,null,null,null,null,null);
         if (cursor.moveToFirst()){
             do {
                 Province province = new Province();
