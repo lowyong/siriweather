@@ -1,13 +1,11 @@
-package com.example.administrator.siriweather.db;
+package com.example.administrator.siriweather.model;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.administrator.siriweather.model.City;
-import com.example.administrator.siriweather.model.County;
-import com.example.administrator.siriweather.model.Province;
+import com.example.administrator.siriweather.db.SiriWeatherOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;

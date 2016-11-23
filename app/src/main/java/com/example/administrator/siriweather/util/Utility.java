@@ -1,12 +1,14 @@
 package com.example.administrator.siriweather.util;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
-import com.example.administrator.siriweather.db.SiriWeatherDB;
+import com.example.administrator.siriweather.model.SiriWeatherDB;
 import com.example.administrator.siriweather.model.City;
 import com.example.administrator.siriweather.model.County;
 import com.example.administrator.siriweather.model.Province;
@@ -15,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Administrator on 2016/11/13.
@@ -96,8 +99,9 @@ public class Utility {
     }
 
     //将服务器返回的所有天气信息存储到SharedPregerences文件中。
-    public static void saveWeatherInfo(Context context,String cityName,String weatherCode,String temp1,String temp2,String weatherDesp,String publishTime){
-        SimpleDateFormat sdf = new SimpleDateFormat("YYYY年M月d日",Lacale.CHINA);
+    @TargetApi(Build.VERSION_CODES.N)
+    public static void saveWeatherInfo(Context context, String cityName, String weatherCode, String temp1, String temp2, String weatherDesp, String publishTime){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日", Locale.CHINA);
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
         editor.putBoolean("city_selected",true);
         editor.putString("city_name",cityName);
